@@ -7,7 +7,17 @@
 <body>
     <h1>{{ first}} {{ last }}</h1>
 
-    <p>Github Account: {{ github}}</p>
+    <p>Github Account: {{ github }}</p>
+
+    <ul>
+    {% for item in grade_tuple %}
+
+        <li><b>Project:</b> <a href="/project?title={{ item[0] }}"> {{ item[0] }}</a> <b>Grade:</b> {{ item[1] }} </li>
+
+    {% endfor %}
+    </ul>
+
+
 
 </body>
 </html>

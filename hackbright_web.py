@@ -16,17 +16,31 @@ def get_student():
     first, last, github = hackbright.get_student_by_github(github)
 
     grade_tuple = hackbright.get_grades_by_github(github)
-    print "this is the grade tuple", grade_tuple
+
 
     html = render_template("student_info.html",
                             first=first,
                             last=last,
-                            github=github)
+                            github=github,
+                            grade_tuple=grade_tuple)
 
     return html
 
     # return "{acct} is the GitHub account for {first} {last}".format(
     #     acct=github, first=first, last=last)
+
+@app.route("/project")
+def project_search():
+    """List information about the project."""
+
+
+    title = request.args.get('title')
+    project_tuple = hackbright.get_project_by_title(title)
+    project_grades = hackbright.get_grades_by_title(title)
+
+    return render_template("project_info.html",
+                            project_tuple=project_tuple,
+                            project_grades=project_grades)
 
 
 @app.route("/student-search")

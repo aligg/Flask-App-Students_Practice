@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+    <title>Project Info</title>
+</head>
+<body>
+  Title: {{ project_tuple[0] }} <br>
+  Description: {{ project_tuple[1] }} <br>
+  Max Grade: {{ project_tuple[2] }} <br>
+
+<ul>
+    {% for item in project_grades %}
+    <li><b>Student:</b> <a href="/student?github={{ item[0] }}"> {{ item[0] }}</a>  <b>Grade:</b> {{ item[1] }}</li>
+    {% endfor %}
+
+</ul>
+
+
+
+
+</body>
+</html>
